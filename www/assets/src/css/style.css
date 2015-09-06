@@ -1,0 +1,26 @@
+*{margin: 0;padding: 0;font-family: "微软雅黑";}
+html{background-color: #e2dc88;}
+img{width: 100%;display: block;}
+.container{position: relative;width: 100%;min-height: 100%;padding-bottom: 30px;max-width: 720px;margin: 0 auto;}
+.container .logo{width: 100%;}
+.container .logo img{position: relative;width: 100%;}
+
+.container .dzp{position: relative;width: 86%;margin: auto;overflow: hidden;margin-top: -15px;}
+.container .dzp .dzpImg{position: relative;z-index: -1;}
+.container .dzp .pointer{position: absolute;width: 100%;left: 0;top: 0;z-index: 9999;-webkit-transform: rotate(-2deg);}
+
+.container .text{position: relative;width: 70%;margin: auto;background-color: #fff;border-radius: 8px;padding: 10px 5%;margin-bottom: 10px;margin-top: 15px;}
+.container .text h3{color: #ce6200;text-align: center;margin-bottom: 8px;}
+.container .text table{border: none;}
+.container .text table td{min-width: 70px;text-align: left;font-size: 14px;line-height: 18px;}
+.container .text p{font-size: 14px;line-height: 18px;}
+.addColor{color: #e52000;}
+
+/* ==========================================================================
+   Modals
+   ========================================================================== */
+
+#msg{-webkit-transform:translate(0 , -60%);position:fixed;top:50%;left:5%;z-index:99999;width:90%;border-radius:6px;background-color:#f5f9f9;text-align:center;}
+#msg p{margin:0;padding:10px;padding:10px 0;font-size:16px;line-height:30px;}
+#msg span{display:block;width:100%;height:40px;border-top:1px solid #c6c6c6;color:#ce6100;font-weight:700;font-size:18px;line-height:40px;cursor:pointer;}
+#msg-full{position:fixed;top:0;left:0;z-index:99998;width:100%;height:100%;background-color:rgba(0,0,0,.3);}
