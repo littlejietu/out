@@ -96,9 +96,9 @@ function _get_html_cssjs($pathKey, $files, $type='css')
 	foreach ($arr as $v) {
 		$v = trim($v);
 		if($type=='css')
-			$strResult .='<link rel="stylesheet" href="'.$path.$v.'" />';
+			$strResult .='<link rel="stylesheet" href="'.$path.$v.'" />'."\r\n";
 		else
-			$strResult .='<script src="'.$path.$v.'"></script>';
+			$strResult .='<script src="'.$path.$v.'"></script>'."\r\n";
 	}
 
 	return $strResult;

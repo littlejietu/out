@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$config['encrypt_open'] = true;
-$config['md5_prefix']                       = 'myxt';
+$config['site_name'] = '局外人';
+
+
 $config['cfg_path'] = array(
 	'css'=>'/assets/src/css/',
 	'js'=>'/assets/src/js/',
@@ -11,6 +12,12 @@ $config['cfg_path'] = array(
 	'admin_js'=>'/assets/admin/js/',
 	'admin_images'=>'/assets/admin/images/',
 );
+
+
+
+$config['encrypt_open'] = true;
+$config['md5_prefix']                       = 'myxt';
+
 
 $config['lottery_id'] = 1;
 $config['lottery_key'] = 'aa';

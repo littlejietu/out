@@ -3,35 +3,27 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta charset="utf-8" />
-        <title>Login Page - Ace Admin</title>
+        <title>登录 - <?=_get_config('site_name');?></title>
 
         <meta name="description" content="User login page" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-        <!-- bootstrap & fontawesome -->
-        <link rel="stylesheet" href="../assets/css/bootstrap.css" />
-        <link rel="stylesheet" href="../assets/css/font-awesome.css" />
+        <?php echo _get_html_cssjs('admin_css','bootstrap.css,font-awesome.css,ace-fonts.css,ace.css','css');?>
 
-        <!-- text fonts -->
-        <link rel="stylesheet" href="../assets/css/ace-fonts.css" />
-
-        <!-- ace styles -->
-        <link rel="stylesheet" href="../assets/css/ace.css" />
 
         <!--[if lte IE 9]>
-            <link rel="stylesheet" href="../assets/css/ace-part2.css" />
+            <?php echo _get_html_cssjs('admin_css','ace-part2','css');?>
         <![endif]-->
-        <link rel="stylesheet" href="../assets/css/ace-rtl.css" />
+        <?php echo _get_html_cssjs('admin_css','ace-rtl.css','css');?>
 
         <!--[if lte IE 9]>
-          <link rel="stylesheet" href="../assets/css/ace-ie.css" />
+          <?php echo _get_html_cssjs('admin_css','ace-ie.css','css');?>
         <![endif]-->
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
         <!--[if lt IE 9]>
-        <script src="../assets/js/html5shiv.js"></script>
-        <script src="../assets/js/respond.js"></script>
+        <?php echo _get_html_cssjs('admin_js','html5shiv.js,respond.js','js');?>
         <![endif]-->
     </head>
 
@@ -44,10 +36,10 @@
                             <div class="center">
                                 <h1>
                                     <i class="ace-icon fa fa-leaf green"></i>
-                                    <span class="red">Ace</span>
-                                    <span class="white" id="id-text2">Application</span>
+                                    <span class="red"><?=_get_config('site_name');?></span>
+                                    <span class="white" id="id-text2">管理平台</span>
                                 </h1>
-                                <h4 class="blue" id="id-company-text">&copy; Company Name</h4>
+                                <h4 class="blue" id="id-company-text">跨域 技术支持</h4>
                             </div>
 
                             <div class="space-6"></div>
@@ -58,12 +50,12 @@
                                         <div class="widget-main">
                                             <h4 class="header blue lighter bigger">
                                                 <i class="ace-icon fa fa-coffee green"></i>
-                                                Please Enter Your Information
+                                                请登录
                                             </h4>
 
                                             <div class="space-6"></div>
 
-                                            <form>
+                                            <form action="" method="post">
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
@@ -83,52 +75,38 @@
 
                                                     <div class="clearfix">
                                                         <label class="inline">
-                                                            <input type="checkbox" class="ace" />
-                                                            <span class="lbl"> Remember Me</span>
+                                                            <span class="lbl" id="codeimg"> 
+                                                                <img class="xtml-15" id="yzimg" src="/util/captcha_admin?<?php echo rand(10000,9999);?>" onclick="this.src='/util/captcha_admin?'+Math.random()" alt="验证码" >
+                                                            </span>
+                                                            </span>
                                                         </label>
 
-                                                        <button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+                                                        <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
                                                             <i class="ace-icon fa fa-key"></i>
-                                                            <span class="bigger-110">Login</span>
+                                                            <span class="bigger-110">登录</span>
                                                         </button>
                                                     </div>
 
                                                     <div class="space-4"></div>
+                                                    <span id="error_code"></span>
                                                 </fieldset>
                                             </form>
 
-                                            <div class="social-or-login center">
-                                                <span class="bigger-110">Or Login Using</span>
-                                            </div>
+                                           
 
-                                            <div class="space-6"></div>
-
-                                            <div class="social-login center">
-                                                <a class="btn btn-primary">
-                                                    <i class="ace-icon fa fa-facebook"></i>
-                                                </a>
-
-                                                <a class="btn btn-info">
-                                                    <i class="ace-icon fa fa-twitter"></i>
-                                                </a>
-
-                                                <a class="btn btn-danger">
-                                                    <i class="ace-icon fa fa-google-plus"></i>
-                                                </a>
-                                            </div>
                                         </div><!-- /.widget-main -->
 
                                         <div class="toolbar clearfix">
                                             <div>
-                                                <a href="#" data-target="#forgot-box" class="forgot-password-link">
+                                                <a href="/" target="_blank" data-target="#forgot-box" class="forgot-password-link">
                                                     <i class="ace-icon fa fa-arrow-left"></i>
-                                                    I forgot my password
+                                                    首页
                                                 </a>
                                             </div>
 
                                             <div>
-                                                <a href="#" data-target="#signup-box" class="user-signup-link">
-                                                    I want to register
+                                                <a href="/reg" target="_blank" data-target="#signup-box" class="user-signup-link">
+                                                    注册
                                                     <i class="ace-icon fa fa-arrow-right"></i>
                                                 </a>
                                             </div>
@@ -256,16 +234,7 @@
 
                             <div class="navbar-fixed-top align-right">
                                 <br />
-                                &nbsp;
-                                <a id="btn-login-dark" href="#">Dark</a>
-                                &nbsp;
-                                <span class="blue">/</span>
-                                &nbsp;
-                                <a id="btn-login-blur" href="#">Blur</a>
-                                &nbsp;
-                                <span class="blue">/</span>
-                                &nbsp;
-                                <a id="btn-login-light" href="#">Light</a>
+                               
                                 &nbsp; &nbsp; &nbsp;
                             </div>
                         </div>
@@ -302,121 +271,10 @@
                 $(target).addClass('visible');//show target
              });
             });
-            
-            
-            
-            //you don't need this, just used for changing background
-            jQuery(function($) {
-             $('#btn-login-dark').on('click', function(e) {
-                $('body').attr('class', 'login-layout');
-                $('#id-text2').attr('class', 'white');
-                $('#id-company-text').attr('class', 'blue');
-                
-                e.preventDefault();
-             });
-             $('#btn-login-light').on('click', function(e) {
-                $('body').attr('class', 'login-layout light-login');
-                $('#id-text2').attr('class', 'grey');
-                $('#id-company-text').attr('class', 'blue');
-                
-                e.preventDefault();
-             });
-             $('#btn-login-blur').on('click', function(e) {
-                $('body').attr('class', 'login-layout blur-login');
-                $('#id-text2').attr('class', 'white');
-                $('#id-company-text').attr('class', 'light-blue');
-                
-                e.preventDefault();
-             });
-             
+
             });
         </script>
     </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>index</title>
-    <link href="<?php echo _get_cfg_path('admin_css')?>main.css" rel="stylesheet">
-    <link href="<?php echo _get_cfg_path('admin_css')?>login.css" rel="stylesheet">
-    <script language="javascript" src="<?php echo _get_cfg_path('admin_js')?>jquery-1.8.0.min.js"></script>
-	<script language="javascript" src="<?php echo _get_cfg_path('admin_js')?>main.js"></script>
-	<script language="javascript" src="<?php echo _get_cfg_path('admin_js')?>user.js"></script>
-	<script language="javascript" src="<?php echo _get_cfg_path('admin_js')?>ajax.js"></script>
-    <script language="javascript" src="<?php echo _get_cfg_path('admin_js')?>common.js"></script>
-</head>
-<script type="text/javascript">
-document.onkeydown=function(event){
-	var e = event || window.event || arguments.callee.caller.arguments[0];
-	 if(e && e.keyCode==13){//回车登录
-		 ajaxLogin('<?php echo base_url()?>');
-	}
-}; 
-</script>
-<body>
-<div id="login">
-    <div class="login_top">
-        <div class="clearfix logincon">
-            <div class="fl">
-            <img width="147" height="43" src="<?php echo _get_cfg_path('admin_images')?>logo.png" alt="logo">
-            </div>
-            <div class="fr">
-             <a class="lb_link" target="_blank" href="<?php echo base_url();?>">牛模网</a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="login_con">
-        <div class="clearfix logincon">
-            <div class="fl flimg"></div>
-            <div class="fr login">
-                <div class="loginbox">
-    
-                        <h3> 登录牛模网后台中心</h3>
-    
-                        <p class="field">
-                            <label><img src="<?php echo _get_cfg_path('admin_images')?>field_1.jpg"/></label>
-                            <input class="user" type="text" id="loginUser"  placeholder="用户名" />
-                        </p>
-    
-                        <p class="field">
-                            <label><img src="<?php echo _get_cfg_path('admin_images')?>field_2.jpg"/></label>
-                            <input class="pass" type="password" id="loginPassword"  placeholder="密码" />
-                        </p>
-                        
-                        <p class="field fl" style="width:150px;float:left;">
-                            <label><img src="<?php echo _get_cfg_path('admin_images')?>field_3.jpg"/></label>
-                            <input class="code" type="text" id="loginCode" placeholder="验证码" style="width:85px;"/>
-                            
-                            <div id="codeimg" class="codeimg" onClick="javascript:;">
-                                <img class="xtml-15" id="yzimg" src="/util/captcha_admin?<?php echo rand(10000,9999);?>" onclick="this.src='/util/captcha_admin?'+Math.random()" alt="验证码" >
-                            </div><span id="error_code"></span>
-                        </p>
-
-                       
-    
-                        <div class="but fl" onClick="javascript:ajaxLogin('<?php echo base_url()?>');">登&nbsp;录</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="login_copyt">
-    Copyright©2014 c2mmall.com 浙ICP备 15002230号 全案策划：<a target="_blank" href="http://www.lebang.com/"> LEBANG . com</a>
-    </div>
-    
-    <span class="error"></span>
-</div>
-<?php include_once('publish/foot.php');?>
 
