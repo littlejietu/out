@@ -86,6 +86,24 @@ function _get_key_val($val, $flag=FALSE)
 }
 
 
+function _get_html_cssjs($pathKey, $files, $type='css')
+{
+	$strResult = '';
+
+	$path = _get_cfg_path($pathKey);
+	$files = trim($files, ',');
+	$arr = explode(',', $files);
+	foreach ($arr as $v) {
+		$v = trim($v);
+		if($type=='css')
+			$strResult .='<link rel="stylesheet" href="'.$path.$v.'" />';
+		else
+			$strResult .='<script src="'.$path.$v.'"></script>';
+	}
+
+	return $strResult;
+}
+
 
 function _get_cfg_path($key)
 {
