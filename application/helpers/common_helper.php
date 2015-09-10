@@ -115,6 +115,17 @@ function _get_cfg_path($key)
 		return '';
 }
 
+function _get_array_value($arr)
+{
+	$strResult = "";
+	foreach ($arr as $key => $value) {
+		$k = empty($key)?'':$key.':';
+		$strResult .= $k.$value.'|';
+	}
+
+	return trim($strResult,'|');
+}
+
 function _create_url($base_url, $params=array())
 {
 	if (substr($base_url, 0, 7) !='http://')$base_url = base_url($base_url);

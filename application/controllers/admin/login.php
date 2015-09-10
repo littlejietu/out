@@ -27,15 +27,16 @@ class Login extends MY_Controller {
 			
 			 $this->form_validation->set_rules($config);
 			 $res = array();
-			 $res['code'] = 0;
+			 $res['code'] = 'EMTPY';
 				
 
 			 if ($this->form_validation->run() === TRUE){
-			 	 $res['code'] = 200;
-			 	 $res['data']['forward'] = site_url('/welcome');
+			 	 $res['code'] = 'SUCCESS';
+			 	 $res['message'] = site_url('/welcome');
 			 	 //redirect('/welcome');
 			 }
-			 $res['data']['error_messages'] = $this->form_validation->getErrors();
+
+			 $res['message'] = _get_array_value($this->form_validation->getErrors());
 			 $this->view->json($res);
 		}
 		
@@ -111,8 +112,8 @@ class Login extends MY_Controller {
 
 		$username = $this->input->post('username');
 		
-		$this->load->model('Admins_model');
-		$user_info = $this->Admins_model->getByUsername($username,'*');
+		$this->load->model('Admin_model');
+		$user_info = $this->Admin_model->getByUsername($username,'*');
 
 		if(empty($user_info)){
 			$this->form_validation->set_message('user_login_check', '用户名或密码错误！');
