@@ -59,6 +59,29 @@ function _get_timehello()
 	return $res;
 }
 
+/**
+ * add_option 
+ * 操作日志
+ * 
+ * @param mixed $option 操作行为
+ * @param mixed $content 内容
+ * @access public
+ * @return void
+ */
+function add_member_option($option,$item_id,$content='')
+{
+	$CI =& get_instance();
+	$options = array(
+	'`option`'=>$option,
+	'content'=>is_array($content) ? '@'.encode_value($content) : $content,
+	'poster'=>$CI->loginAccount,
+	'poster_id'=>$CI->loginID,
+	'item_id'=>$item_id,
+	'created'=>$CI->timestamp,
+	'ip'=>$CI->input->ip_address(),
+	);
 
+	return XTM('Admin_option')->insert($options);
+}
 
 ?>

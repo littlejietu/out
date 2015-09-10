@@ -73,21 +73,25 @@
 
                                                     <div class="space"></div>
 
-                                                    <div class="clearfix">
+                                                    <div class="block clearfix">
                                                         <label class="inline">
-                                                            <span class="lbl" id="codeimg"> 
+                                                            <span class="lbl"> 
                                                                 <img class="xtml-15" id="yzimg" src="/util/captcha_admin?<?php echo rand(10000,9999);?>" onclick="this.src='/util/captcha_admin?'+Math.random()" alt="验证码" >
                                                             </span>
+                                                            <span class="lbl">
+                                                                <input type="text" name="code" id="code" class="width-30" placeholder="验证码" />
                                                             </span>
+
+                                                            <button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="btnLogin">
+                                                                <i class="ace-icon fa fa-key"></i>
+                                                                <span class="bigger-110">登录</span>
+                                                            </button>
                                                         </label>
 
-                                                        <input type="text" name="code" id="code" class="pull-right form-control width-30" placeholder="验证码" />
+                                                        
                                                     </div>
                                                     <div class="clearfix">
-                                                        <button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="btnLogin">
-                                                            <i class="ace-icon fa fa-key"></i>
-                                                            <span class="bigger-110">登录</span>
-                                                        </button>
+                                                        
                                                     </div>
 
                                                     <div class="space-4"></div>
@@ -158,6 +162,8 @@
             //    $(target).addClass('visible');//show target
             // });
                 $("#btnLogin").bind('click',function(){
+                    $("#resultMsg").html("");
+
                     var param = {};
                     param.username = $("#username").val();
                     param.password = $("#password").val();
@@ -170,13 +176,19 @@
                         dataType:"json",
                         //contentType: 'application/json; charset=utf-8',
                         success:function(data){
-                            if(data.code == "Success"){
+
+                            if(data.code == "SUCCESS"){
                                 $("#username").val("");
                                 $("#password").val("");
                                 $("#code").val("");
+
+                                window.location.href=data.message;
                             }
                             else
+                            {
+                                $("#yzimg").click();
                                 $("#resultMsg").html(data.message);
+                            }
                         }
                     });
                 });//#btnLogin

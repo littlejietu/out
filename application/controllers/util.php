@@ -71,7 +71,7 @@ echo $Shortcut;exit;
 
 	public function captcha_admin(){
 		$this->load->helper('captcha');
-		create_captcha(4,85,34,'verify_adm');
+		create_captcha(4,85,35,'verify_adm');
 	}
 	
 	public function nokeywords()

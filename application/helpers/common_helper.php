@@ -115,11 +115,13 @@ function _get_cfg_path($key)
 		return '';
 }
 
-function _get_array_value($arr)
+function _get_array_str($arr, $hasKey=FALSE)
 {
 	$strResult = "";
 	foreach ($arr as $key => $value) {
-		$k = empty($key)?'':$key.':';
+		$k = '';
+		if($hasKey)
+			$k = empty($key)?'':$key.':';
 		$strResult .= $k.$value.'|';
 	}
 
@@ -179,6 +181,15 @@ function http_post_data($url, $data_string){
     return array($return_code, $return_content); 
 
 }
+
+function XTM($model)
+{
+	$model = ucfirst($model).'_model';
+	$CI =& get_instance();
+	$CI->load->model($model);
+	return $CI->$model;
+}
+
 
 
 ?>

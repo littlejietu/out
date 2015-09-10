@@ -32,31 +32,33 @@ class Login extends MY_Controller {
 
 			 if ($this->form_validation->run() === TRUE){
 			 	 $res['code'] = 'SUCCESS';
-			 	 $res['message'] = site_url('/welcome');
+			 	 $res['message'] = site_url('/admin');
 			 	 //redirect('/welcome');
 			 }
+			 else
+			 	$res['message'] = _get_array_str($this->form_validation->getErrors());
 
-			 $res['message'] = _get_array_value($this->form_validation->getErrors());
+
 			 $this->view->json($res);
 		}
 		
 		//////保存自动登陆，自动登陆后台////////
-		$trjcn_loginID = 0;
-		$trjcn_loginUser = $this->input->cookie('admin_loginUser');
-		if ($trjcn_loginUser)
+		$xt_loginID = 0;
+		$xt_loginUser = $this->input->cookie('admin_loginUser');
+		if ($xt_loginUser)
 		{
 			$this->load->library('encrypt');
-			$strmd5 = substr($trjcn_loginUser, 0, 32);
-			$str = substr($trjcn_loginUser,32);
+			$strmd5 = substr($xt_loginUser, 0, 32);
+			$str = substr($xt_loginUser,32);
 			
 			if (md5($this->config->item('encryption_key').$str) == $strmd5){
-				$trjcn_loginID = (int)$this->encrypt->decode($str);
+				$xt_loginID = (int)$this->encrypt->decode($str);
 			}
 			
 		}
-		if($trjcn_loginID>0){	
-			$this->load->model('Admins_model');
-			$admins_info = $this->Admins_model->getById($trjcn_loginID);
+		if($xt_loginID>0){	
+			$this->load->model('Admin_model');
+			$admins_info = $this->Admin_model->getById($xt_loginID);
 			if(empty($admins_info) || $admins_info['status']!=1){//账号无效
 				$this->input->set_cookie('admin_loginUser', '');
 				redirect('/login');
@@ -73,10 +75,10 @@ class Login extends MY_Controller {
 			$this->session->set_userdata($data);//生成session
 			
 			//更新管理员登陆时间
-			$this->Admins_model->updateById($trjcn_loginID, array('lastlogin'=>time()));
+			$this->Admin_model->updateById($xt_loginID, array('lastlogintime'=>time()));
 			unset($admins_info);
 			unset($role_info);
-			header('location:/welcome');
+			header('location:/admin');
 			exit;
 		}
 
@@ -103,7 +105,7 @@ class Login extends MY_Controller {
 		if($this->isCode())
         {
             $this->load->helper('captcha');
-            if (!check_captcha($_POST['code']))
+            if (!check_captcha($_POST['code'], 'verify_adm'))
             {
                 $this->form_validation->set_message('user_login_check', '验证码输入不正确');
                 return false;
@@ -151,8 +153,8 @@ class Login extends MY_Controller {
 			$this->session->set_userdata($data);//生成session
 			
 			//更新管理员登陆时间
-			$fieldsData = array('lastlogin'=>time());
-			$this->Admins_model->updateById($user_info['id'], $fieldsData);
+			$fieldsData = array('lastlogintime'=>time());
+			$this->Admin_model->updateById($user_info['id'], $fieldsData);
 			
 			$this->loginAccount = $user_info['username'];
 			$this->loginID = $user_info['id'];
@@ -170,7 +172,7 @@ class Login extends MY_Controller {
 		$this->input->set_cookie('admin_loginUser', '');
 		$this->session->set_userdata('loginUser');
 		unset($this->current_Admin);
-		redirect('/login');
+		redirect('/admin/login');
 	}
 
 	/**
@@ -183,8 +185,8 @@ class Login extends MY_Controller {
 
 			$username = $this->input->post('username');
 			$email = $this->input->post('email');
-			$this->load->model('Admins_model');
-			$admins_info = $this->Admins_model->getByUsername($username,'id,username,email');
+			$this->load->model('Admin_model');
+			$admins_info = $this->Admin_model->getByUsername($username,'id,username,email');
 
 			if(empty($admins_info)){
 				$res['data']['error_messages']['result'] = '输入的用户名不存在！';
@@ -231,7 +233,7 @@ class Login extends MY_Controller {
 	public function reset_pwd(){
 
 		$valid=false;//邮件是否有效
-		$this->load->model('Admins_model');
+		$this->load->model('Admin_model');
 		$code = $this->input->get('code');
         if ($code)
 		{
@@ -246,7 +248,7 @@ class Login extends MY_Controller {
                 {
                     list($username,$user_id, $email, $time) = explode('|', $code);
 
-					$admins_info = $this->Admins_model->getByUsername($username,'id,username,email');
+					$admins_info = $this->Admin_model->getByUsername($username,'id,username,email');
 					if(empty($admins_info)){
 						echo '链接地址无效，找不到对应系统会员账号！';exit;
 					}
@@ -277,7 +279,7 @@ class Login extends MY_Controller {
 			}
 			$pwd=md5($pwd);
 
-			$succ=$this->Admins_model->updateById($admins_info['id'],array('password'=>$pwd));
+			$succ=$this->Admin_model->updateById($admins_info['id'],array('password'=>$pwd));
 			if($succ){
 				$res['code']='200';
 			}else{
