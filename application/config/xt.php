@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$config['site_name'] = '局外人';
+$config['site_name'] = '';
 
 
 $config['cfg_path'] = array(

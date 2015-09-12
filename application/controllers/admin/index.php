@@ -12,8 +12,7 @@ class Index extends MY_Admin_Controller {
 	public function index()
 	{
 
-		
-		$this->load->view('admin/inc/header');
+
 		$this->load->view('admin/index');
 		$this->load->view('admin/inc/footer');
 	}
