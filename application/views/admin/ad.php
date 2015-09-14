@@ -1,13 +1,5 @@
-<html>
-<head>
-	<link href="<?php echo _get_cfg_path('admin_css')?>base.css" rel="stylesheet" type="text/css" />
-	<link href="<?php echo _get_cfg_path('admin_css')?>common.css" rel="stylesheet" type="text/css" />
-	<link href="<?php echo _get_cfg_path('admin_css')?>main.css" rel="stylesheet">
-    <link href="<?php echo _get_cfg_path('admin_css')?>right.css" rel="stylesheet">
+<?php $this->load->view('admin/inc/page_block_header');?>
 
-</head>
-
-<body>
 
 <div class="right_con common">
 
@@ -95,6 +87,6 @@
         </tr>
     </table>
 </div>
-<script type="text/javascript" src="<?php echo _get_cfg_path('lib')?>My97DatePicker/WdatePicker.js"></script>
-</body>
-</html>
+
+
+<?php $this->load->view('admin/inc/page_block_footer');?>

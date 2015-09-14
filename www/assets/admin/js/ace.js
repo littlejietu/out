@@ -104,10 +104,10 @@ jQuery(function($) {
 			}
 		}
 
-		var demo_ajax_options = {
+		var xt_ajax_options = {
 			 'close_active': true,
 			 
-			 'default_url': 'page/index',//default hash
+			 'default_url': 'page/home',//default hash
 			 'content_url': function(hash) {
 				//***NOTE***
 				//this is for Ace demo only, you should change it to return a valid URL
@@ -116,23 +116,26 @@ jQuery(function($) {
 				if( !hash.match(/^page\//) ) return false;
 				var path = document.location.pathname;
 
-				//for example in Ace HTML demo version we convert /ajax/index.html#page/gallery to > /ajax/content/gallery.html and load it
-				if(path.match(/(\/ajax\/)(index\.html)?/))
-					return path.replace(/(\/ajax\/)(index\.html)?/, '/ajax/content/'+hash.replace(/^page\//, '')+'.html') ;
+				// /admin#page/gallery?xx=ss to > /admin/gallery?xx=ss and load it
+				if(path.match(/(\/admin\/)(index\.html)?/))
+					return path.replace(/(\/admin\/)(index\.html)?/, '/admin/'+hash.replace(/^page\//, '')) ;
 
-				//for example in Ace PHP demo version we convert "ajax.php#page/dashboard" to "ajax.php?page=dashboard" and load it
-				return path + "?" + hash.replace(/\//, "=");
+				// "admin#page/dashboard" to "admin/dashboard" and load it
+				var go_url=path + "/" + hash.replace(/^page\//, '').replace(/\//, "=");
+//console.log(go_url);return false;
+				
+				return go_url;
 			  }			  
 		}
 		   
 		//for IE9 and below we exclude PACE loader (using conditional IE comments)
 		//for other browsers we use the following extra ajax loader options
 		if(window.Pace) {
-			demo_ajax_options['loading_overlay'] = 'body';//the opaque overlay is applied to 'body'
+			xt_ajax_options['loading_overlay'] = 'body';//the opaque overlay is applied to 'body'
 		}
 
 		//initiate ajax loading on this element( which is .page-content-area[data-ajax-content=true] in Ace's demo)
-		$('[data-ajax-content=true]').ace_ajax(demo_ajax_options)
+		$('[data-ajax-content=true]').ace_ajax(xt_ajax_options)
 
 		//if general error happens and ajax is working, let's stop loading icon & PACE
 		$(window).on('error.ace_ajax', function() {

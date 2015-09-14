@@ -1,6 +1,51 @@
 <?php
 /*公用函数库*/
+function _get_nav_isactive($arr)
+{
+	$uri = '/'.uri_string();
 
+	if(!empty($arr['page']) && $arr['page']==$uri)
+		return true;
+	
+	if(!empty($arr['submenu']))
+	{
+		foreach ($arr['submenu'] as $arrSub) {
+			if($arrSub['page']==$uri)
+				return true;
+		}
+	}
+
+	return false;	
+}
+
+function _get_breadcrumb_url()
+{
+	$result = array();
+	$uri = '/'.uri_string();
+	$arrNav=_get_config('nav_list');
+	foreach ($arrNav as $a) {
+		if(!empty($a['page']) && $a['page']==$uri)
+		{
+			$result[]=array('title'=>$a['title'],'page'=>$a['page'],'active'=>1);
+			return $result;
+		}
+
+		if(!empty($a['submenu']))
+		{
+			foreach ($a['submenu'] as $arrSub) {
+				if($arrSub['page']==$uri)
+				{
+					$result[]=array('title'=>$a['title'],'page'=>$a['page'],'active'=>0);
+					$result[]=array('title'=>$arrSub['title'],'page'=>$arrSub['page'],'active'=>1);
+					return $result;
+				}
+			}
+		}
+
+	}
+	
+	return $result; 
+}
 
 function _get_userlogo_url($userlogo){
 

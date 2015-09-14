@@ -56,7 +56,7 @@ class Login extends MY_Controller {
 			}
 			
 		}
-		if($xt_loginID>0){	
+		if($xt_loginID>0){
 			$this->load->model('Admin_model');
 			$admins_info = $this->Admin_model->getById($xt_loginID);
 			if(empty($admins_info) || $admins_info['status']!=1){//账号无效

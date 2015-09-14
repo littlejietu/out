@@ -11,10 +11,12 @@ class Index extends MY_Admin_Controller {
     //默认执行index
 	public function index()
 	{
+		$data = array(
+			'page_title'=>'首页',
+			);
 
-
-		$this->load->view('admin/index');
-		$this->load->view('admin/inc/footer');
+		$this->load->view('admin/index',$data);
+		
 	}
 
 	

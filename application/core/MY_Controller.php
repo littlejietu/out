@@ -58,8 +58,12 @@ class MY_Controller extends CI_Controller{
 
 
 class MY_Admin_Controller extends CI_Controller {
-    
+	function __construct(){
+        parent::__construct();
 
+	    $xt_loginUser = $this->input->cookie('admin_loginUser');
+		if(empty($xt_loginUser))
+			header('location:/admin/login');
 
-
+	}
 }
