@@ -42,14 +42,14 @@ $config['nav_list'] = array(
 	),
 	3=>array(
 		'icon'=>'fa-list',
-		'title'=>'裸单实盘',
-		'page'=>'/admin/bb',
+		'title'=>'图说公司',
+		'page'=>'',
 		'open'=>'',
 		'submenu'=>array(
 				12=>array(
 					'icon'=>'fa-caret-right',
 					'title'=>'裸单实盘',
-					'page'=>'/admin/ad',
+					'page'=>'/admin/media',
 					'parentid'=>3,
 					),
 				13=>array(
