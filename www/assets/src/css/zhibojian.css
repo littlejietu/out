@@ -1,0 +1,95 @@
+*{font-size:12px;font-family:"微软雅黑";list-style:none;}
+.big_box1{margin-top:80px;width:1304px;margin-left:auto;margin-right:auto;overflow:hidden;}
+.left_box,.center_box,.right_box{float:left;}
+.left_box p{font-size:14px;color:#ea9b7e;margin-bottom:35px;margin-left:10px;}
+.left_box ul li{margin-bottom:18px;font-size:18px;color:#666;}
+.left_box ul li:first-child{margin-left:17px;}
+.left_box ul{margin-bottom:154px;}
+.left_box ul:last-child{margin-bottom:0;}
+.left_box ul:last-child li:last-child{margin-bottom:0;}
+.center_box{width:670px;margin-left:23px;border-left:solid 2px #d9d9d9;position:relative;margin-right:20px;}
+.center_box .zaixrs{background-image:url(../images/graytiao.png);width:658px;height:32px;padding-left:12px;background-repeat:no-repeat;background-position:right 0;}
+.center_box .zaixrs .second{color:#666;line-height:32px;margin-left:47px;}
+.center_box .zaixrs .second span{color:red;margin-left:2px;}
+.center_box .zaixrs li:first-child{margin-left:50px;color:#666;font-size:14px;line-height:32px;}
+.center_box .zaixrs li:first-child span{color:#333;margin-left:4px;font-size:14px;}
+.center_box .zaixrs li{float:left;}
+.center_box .zaixrs li:last-child{float:right;}
+.center_box .zaixrs li:last-child dd,.center_box .zaixrs li:last-child dt{float:left;}
+.center_box .zaixrs li:last-child dt{width:60px;height:20px;background-color:white;text-align:center;color:#666;line-height:20px;margin-top:4px;border:solid 1px #d2d2d2;}
+.center_box .zaixrs li:last-child dd{width:52px;height:20px;background-color:white;color:#666;line-height:20px;margin-top:4px;border:solid 1px #d2d2d2;margin-left:15px;margin-right:15px;padding-left:10px;background-image:url(../images/shuaxintu.png);background-repeat:no-repeat;background-position:40px center;}
+.center_box .kaipanz{background-image:url(../images/whitetiao.png);width:658px;height:206px;padding-left:12px;background-repeat:no-repeat;background-position:right 0;padding-top:18px;}
+.center_box .kaipanz li{margin-left:37px;}
+.center_box .kaipanz li:first-child{margin-left:52px;margin-bottom:10px;font-size:14px;color:#666;font-weight:bold;}
+.center_box .kaipanz li:last-child{margin-left:56px;margin-top:10px;font-size:14px;color:#666;font-weight:bold;background-image:url(../images/fenxiang.png);background-repeat:no-repeat;background-position:0 center;padding-left:17px;}
+.center_box ul{margin-bottom:25px;}
+.center_box .tiedan{border:solid 1px #bababa;margin-left:22px;margin-bottom:0;position:relative;height:31px;}
+.center_box .tiedan .tiedanpos_box{position:absolute;bottom:0;left:0;width:646px;display:none;}/*显示隐藏*/
+.center_box .tiedan .tiedanpos_box div{background-color:white;height:160px;border:solid 1px #c1c1c1;border-top:none;}
+.center_box .tiedan .tiedanpos_box div form .text2{width:500px;height:37px;float:left;}
+.center_box .tiedan .tiedanpos_box div form .file{float:left;width:60px;height:34px;margin-left:20px;margin-top:2px;}
+.center_box .tiedan .tiedanpos_box div dl{padding-top:9px;padding-left:37px;}
+.center_box .tiedan .tiedanpos_box ul{background-color:#f5f5f5;overflow:hidden;margin-bottom:0;border:solid 1px #c1c1c1}
+.center_box .tiedan .tiedanpos_box .tiedan1{font-size:16px;color:#333;margin-left:285px;line-height:30px;}
+.center_box .tiedan .tiedanpos_box li:first-child{background-image:url(../images/jian.png);}
+.center_box .tiedan li{float:left;}
+.center_box .tiedan li:last-child{font-size:16px;color:#333;margin-left:285px;line-height:30px;}
+.center_box .tiedan li:first-child{border:solid 1px #bababa;width:16px;height:16px;margin-top:7px;margin-left:7px;background:radial-gradient(#f5f5f5 5%,#d8d8d8 80%);background-image:url(../images/jia.png);background-repeat:no-repeat;background-position:center;}
+.center_box .circle1,.center_box .circle2,.center_box .circle3,.center_box .circle4{width:10px;height:10px;background-color:#ea9b7e;border-radius:50%;position:absolute;}
+.center_box .circle1{left:-6px;top:11px;}
+.center_box .circle2{left:-6px;top:60px;}
+.center_box .circle3{left:-6px;bottom:487px;}
+.center_box .circle4{left:-6px;bottom:248px;}
+.right_box ul:first-child li:first-child{border:solid 1px #9a9a9a;overflow:hidden;border-bottom:none;width:349px;}
+.right_box ul:first-child li:first-child dd img{margin-left:53px;float:left;}
+.right_box ul:first-child li:first-child dd{margin-top:11px;overflow:hidden;}
+.right_box ul:first-child li:first-child dd div{float:left;margin-left:28px;}
+.right_box ul:first-child li:first-child dd div h1{font-size:16px;color:#333;}
+.right_box ul:first-child li:first-child dd div button{color:white;border:none;background:-moz-linear-gradient( top,#f2c9ba,#e97b53);background:-webkit-linear-gradient( top,#f2c9ba,#e97b53);background:-ms-linear-gradient( top,#f2c9ba,#e97b53);box-shadow:0 2px 2px #ea9373;height:28px;width:78px;padding-left:13px;margin-right:118px;margin-top:17px;}
+.right_box ul:first-child li:first-child dd div button span{background-image:url(../images/jia_white.png);float:left;width:12px;height:11px;margin-top:3px;}
+.right_box ul:first-child li:first-child dt{margin-top:23px;overflow:hidden;padding-bottom:20px;}
+.right_box ul:first-child li:first-child h4,.right_box ul:first-child li:first-child h5{color:#666;float:left;font-size:16px;margin-left:72px;}
+.right_box ul:first-child li:first-child h4 span,.right_box ul:first-child li:first-child h5 span{font-size:16px;color:#333;margin-left:8px;}
+.right_box ul:first-child li:last-child{border:solid 1px #c7c7c7;background-color:white;width:349px;}
+.right_box ul:first-child li:last-child p:first-child{padding-left:60px;color:#333;margin-top:16px;margin-bottom:17px;}
+.right_box ul:first-child li:last-child p:last-child{padding-left:60px;padding-right:40px;margin-bottom:35px;line-height:20px;}
+.right_box .login_box{border:solid 1px #bababa;width:534px;margin-top:20px;}
+.right_box .login_box .login1 dl{background-image:url(../images/jianbiant.png);height:30px;}
+.right_box .login_box .login1 dl dd,.right_box .login_box .login1 dl dt,.right_box .login_box .login1 dl li{float:left;}
+.right_box .login_box .login1 dl dd{width:18px;height:18px;border:solid 1px #959595;margin-top:6px;margin-left:15px;background-image:url(../images/jian.png);background-repeat:no-repeat;background-position:center;}
+.right_box .login_box .login1 dl li{margin-top:6px;margin-left:204px;margin-right:135px;}
+.right_box .login_box .login1 dl span{font-size:14px;color:#333;line-height:30px;}
+.right_box .login_box .login1 dl span:last-child{margin-left:28px;}
+.right_box .login_box .login2{overflow:hidden;}
+.right_box .login_box .login2 span{font-size:14px;color:#666;float:left;}
+.right_box .login_box .login2 span:first-child{margin-left:22px;margin-top:10px;margin-right:16px;}
+.right_box .login_box .login2 span:last-child{border:solid 1px #bababa;padding-top:9px;border-top:none;border-right:none;padding-right:407px;padding-left:15px;padding-bottom:7px;}
+.right_box .login_box .login3{overflow:hidden;margin-top:7px;}
+.right_box .login_box .login3 .left1{float:left;}
+.right_box .login_box .login3 .right1{float:right;margin-right:8px;}
+.right_box .login_box .login3 .left1 dl:first-child{border:solid 1px #bababa;background-color:white;}
+.right_box .login_box .login3 .left1 dl:first-child dt p{color:#666;line-height:33px;}
+.right_box .login_box .login3 .left1 dl:first-child dt p span{color:#333;margin-left:10px;}
+.right_box .login_box .login3 .left1 dl:first-child dt .guanly span span{color:red;margin-left:0;}
+.right_box .login_box .login3 .left1 dl:first-child dt{padding-top:15px;padding-left:20px;}
+.right_box .login_box .login3 .left1{margin-left:13px;width:337px;}
+.right_box .login_box .login3 .left1 dl:first-child dd p{color:#ea9b7e;margin-left:26px;}
+.right_box .login_box .login3 .left1 dl:first-child dd p:first-child{margin-top:10px;}
+.right_box .login_box .login3 .left1 dl:first-child dd p:last-child{text-indent:6px;margin-bottom:15px;}
+.right_box .login_box .login3 .left1 dl:last-child{margin-top:10px;}
+.right_box .login_box .login3 .left1 dl:last-child .text3{width:279px;height:58px;border:solid 1px #bababa;box-shadow:1px 1px 7px #e5e5e5 inset;}
+.right_box .login_box .login3 .left1 dl:last-child .button1{line-height:56px;border:solid 1px #c1c1c1;padding-left:10px;padding-right:10px;color:#666;font-size:14px;}
+.right_box .login_box .login3 .right1 dl:first-child li{border:solid 1px #bababa;font-size:14px;color:#666;line-height:28px;width:165px;text-align:center;}
+.right_box .login_box .login3 .right1 dl:first-child p{color:#666;line-height:22px;}
+.right_box .login_box .login3 .right1 dl:first-child dt{border:solid 1px #bababa;border-top:none;padding-top:17px;padding-left:26px;height:136px;background-color:white;}
+.right_box .login_box .login3 .right1 dl:last-child{margin-top:7px;}
+.right_box .login_box .login3 .right1 dl:last-child dt{border:solid 1px #919191;line-height:34px;padding-left:17px;background-image:url(../images/search1.png);background-repeat:no-repeat;background-position:127px center;color:#666;}
+.right_box .login_box .login3 .right1 dl:last-child dd{border:solid 1px #bababa;border-top:none;background-color:white;padding-top:17px;padding-left:28px;color:#666;line-height:20px;height:132px;}
+.right_box .login_box .login3 .right1 dl:last-child dd p{background-image:url(../images/arrow_right.png);background-repeat:no-repeat;background-position:0 center;padding-left:16px;}
+.right_box .login_box .login3 .right1 dl:last-child dd .youke{background-image:url(../images/arrow_bottom1.png);}
+.right_box .login_box .login3 .right1 dl:last-child dd li{margin-left:15px;color:#999;}
+.right_box .login_box .login4 dl{color:#666;overflow:hidden;padding-top:12px;padding-bottom:12px;}
+.right_box .login_box .login4 dl dd,.right_box .login_box .login4 dl dt,.right_box .login_box .login4 dl li{float:left;}
+.right_box .login_box .login4 dl dd{margin-left:27px;background-image:url(../images/biaoqing.png);width:24px;height:23px;padding-left:30px;background-repeat:no-repeat;line-height:23px;}
+.right_box .login_box .login4 dl dt{background-image:url(../images/jietu.png);width:26px;height:20px;padding-left:30px;background-repeat:no-repeat;line-height:20px;margin-top:2px;margin-left:28px;}
+.right_box .login_box .login4 dl li{background-image:url(../images/lishijilu.png);width:48px;height:20px;background-repeat:no-repeat;padding-left:25px;line-height:20px;margin-left:20px;margin-top:2px;}

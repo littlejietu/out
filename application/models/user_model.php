@@ -4,45 +4,19 @@ class User_model extends XT_Model {
 
 	protected $mTable = 'user';
 	protected $tb_user = 'user';
-	protected $tb_userdetail = 'user_detail';
-	protected $tb_usermemo = 'user_memo';
+	protected $tb_userinfo = 'user_info';
 
 	public function get_info_by_id($id, $fields='*')
 	{
 		$aUser = $this->get_by_id($id, $fields);
-		// if( in_array($aUser['usertype'],array(1,4,5)) )
-		// {
-
-			$this->set_table($this->tb_userdetail);
-			$aUserDetail = $this->get_by_where("userid=$id",'*');
-			if($aUserDetail)
-				$aUser = array_merge($aUserDetail, $aUser);
-			$this->set_table($this->tb_usermemo);
-			$aUserMemo = $this->get_by_where("userid=$id",'*');
-			if($aUserMemo)
-				$aUser = array_merge($aUserMemo, $aUser);
-			$this->set_table($this->tb_user);
-			return $aUser;
-		// }
-		// else
-		// {
-		// 	$this->set_table($this->tb_usermemo);
-		// 	$aUserMemo = $this->get_by_where("userid=$id",'*');
-		// 	if($aUserMemo)
-		// 		$aUser = array_merge($aUserMemo, $aUser);
-		// 	$this->set_table($this->tb_user);
-		// 	return $aUser;
-		// }
-
-		/*$rs = $this->db->select($fields)
-		->from($this->mTable.' a')
-		->join($this->tb_userdetail.' b','a.id=b.userid','left')
-		->join($this->tb_usermemo.' c','a.id=c.userid','left')
-		->where("a.id=$id")
-		->get()->row_array();
-		print_r($rs);die;
-		return $rs;
-		*/
+		
+		$this->set_table($this->tb_userinfo);
+		$aUserInfo = $this->get_by_where("userid=$id",'*');
+		if($aUserInfo)
+			$aUser = array_merge($aUserInfo, $aUser);
+		
+		$this->set_table($this->tb_user);
+		return $aUser;
 	}
 
 
@@ -81,7 +55,7 @@ class User_model extends XT_Model {
 	public function get_user_by_email($email, $fields='*')
 	{
 		$db_temp = $this->db->select($fields)
-		->from($this->mTable)
+		->from($this->tb_userinfo)
 		->where('email', $email)
 		->get()
 		->row_array();
@@ -97,7 +71,7 @@ class User_model extends XT_Model {
 		//$this->db->set('login_num', 'login_num+1', FALSE);
 		//$this->db->set('security_code', $this->security_code);
 		$this->db->where('id', $id);
-		return $this->db->update($this->mTable);
+		return $this->db->update($this->tb_userinfo);
 	}
 
 	/**
@@ -112,23 +86,18 @@ class User_model extends XT_Model {
 		}
 		//$this->db->set('email_true', $email_true, FALSE);
 		$this->db->where('id', $id);
-		return $this->db->update($this->mTable);
+		return $this->db->update($this->tb_userinfo);
 	}
 
 	/**
 	*通过用户表id更新
 	*/
-	public function update_info_by_id($id, $data, $data_detail=array(), $data_memo=array()){
+	public function update_info_by_id($id, $data, $data_info=array()){
 		$where = array('id'=> $id);
-		if(!empty($data_detail))
+		if(!empty($data_info))
 		{
-			$this->set_table($this->tb_userdetail);
-			$this->update_by_where(array('userid'=>$id), $data_detail, $this->tb_userdetail);
-		}
-		if(!empty($data_memo))
-		{
-			$this->set_table($this->tb_usermemo);
-			$this->update_by_where(array('userid'=>$id), $data_memo, $this->tb_usermemo);
+			$this->set_table($this->tb_userinfo);
+			$this->update_by_where(array('userid'=>$id), $data_info, $this->tb_userinfo);
 		}
 		$this->set_table($this->tb_user);
 
@@ -148,7 +117,7 @@ class User_model extends XT_Model {
 	public function user_nickname_check($val)
 	{
 		$db_temp = $this->db->select('count(1) as num ',false)
-		->from($this->mTable)
+		->from($this->tb_userinfo)
 		->where('nickname', $val)
 		->get()
 		->row_array();
@@ -158,7 +127,7 @@ class User_model extends XT_Model {
 	public function user_mobile_check($val)
 	{
 		$db_temp = $this->db->select('count(1) as num ',false)
-		->from($this->mTable)
+		->from($this->tb_userinfo)
 		->where('mobile', $val)
 		->get()
 		->row_array();
@@ -168,7 +137,7 @@ class User_model extends XT_Model {
 	public function user_email_check($val)
 	{
 		$db_temp = $this->db->select('count(1) as num ',false)
-		->from($this->mTable)
+		->from($this->tb_userinfo)
 		->where('email', $val)
 		->get()
 		->row_array();
@@ -185,28 +154,6 @@ class User_model extends XT_Model {
 		return $db_temp['num'];
 	}
 
-	public function add_user_by_ins($insid,$usertype)
-	{
-		$data = array('username'=>time(),
-			'usertype'=>$usertype,
-			'insid'=>$insid,
-			'status'=>2,		//无登录功能
-			'addtime'=>time(),
-			'lastip'=>_ip_long(),
-			);
-		$userid = $this->insert_string( $data );
-
-		$data_detail = array('userid'=>$userid,
-			);
-		$data_memo = array('userid'=>$userid,
-			);
-		$this->set_table($this->tb_userdetail);
-        $this->insert($data_detail);
-        $this->set_table($this->tb_usermemo);
-        $this->insert($data_memo);
-        $this->set_table($this->tb_user);
-
-        return $userid;
-	}
+	
 
 }

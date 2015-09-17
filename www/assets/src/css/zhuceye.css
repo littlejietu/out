@@ -1,0 +1,23 @@
+.header .nav .shouy{border-bottom:solid 2px #ea9b7e}
+.header .nav .sssp{border:none;}
+.zhuceye_box{border:solid 1px #999;margin-top:105px;margin-bottom:20px;width:1157px;margin-left:auto;margin-right:auto;background-color:white;}
+.zhuceye_box ul:first-child{overflow:hidden;border-bottom:solid 1px #999;padding-top:28px;padding-left:30px;padding-bottom:11px;margin-bottom:30px;}
+.zhuceye_box ul:first-child li:first-child{font-size:30px;color:#666;float:left;}
+.zhuceye_box ul:first-child li:last-child{font-size:14px;color:#666;float:right;margin-right:40px;margin-top:20px;}
+.zhuceye_box .form_zhuce dl dt,.zhuceye_box .form_zhuce dl dd,.zhuceye_box .form_zhuce dl li{float:left;}
+.zhuceye_box .form_zhuce dl{overflow:hidden;margin-bottom:30px;}
+.zhuceye_box .form_zhuce dl li{font-size:20px;color:#666;margin-left:203px;margin-right:30px;line-height:38px;}
+.zhuceye_box .form_zhuce dl .yanzm{margin-left:223px;}
+.zhuceye_box .form_zhuce dl dd input{width:312px;height:38px;border:solid 1px #ccc;font-size:16px;}
+.zhuceye_box .form_zhuce dl dt{width:262px;height:38px;border:solid 1px #e0e0e0;border-left:none;background-color:#f5f5f5;font-size:14px;color:#999;line-height:37px;padding-left:50px;background-image:url(../images/arrowR.png);background-repeat:no-repeat;background-position:10px center;}
+.zhuceye_box .form_zhuce dl .yanzm1{width:312px;}
+.zhuceye_box .form_zhuce dl .yanzm2{border-left:solid 1px #e0e0e0;}
+.zhuceye_box .form_zhuce dl .yanzm2 span{color:red;font-size:14px;font-weight:bold;}
+.zhuceye_box .form_zhuce dl .yanzm1 p:first-child input{width:93px;height:39px;}
+.zhuceye_box .form_zhuce dl .yanzm1 p:first-child{float:left;}
+.zhuceye_box .form_zhuce dl .yanzm1 .yanzm_img{width:91px;height:38px;border:solid 1px #999999;float:left;background-color:#ebebeb;margin-left:20px;background-image:url(../images/yanzhengma.png);background-repeat:no-repeat;background-position:center;}
+.zhuceye_box .form_zhuce dl .yanzm1 span{font-size:14px;color:#666;line-height:38px;margin-left:25px;}
+.zhuceye_box .form_zhuce button{width:102px;height:44px;background-image:url(../images/button.png);border:none;font-size:18px;color:white;font-family:"宋体";font-weight:bold;margin-left:522px;margin-bottom:20px;}
+.zhuceye_box .form_zhuce h1{font-size:14px;color:#666;margin-left:487px;margin-bottom:30px;}
+.zhuceye_box .form_zhuce h1 a{font-size:14px;color:#01bafe;font-weight:bold;text-decoration:none;}
+.footer{position:fixed;width:100%;bottom:0;}

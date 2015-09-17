@@ -1,0 +1,26 @@
+.login_box{width:100%;height:1610px;position:absolute;left:0;top:0;z-index:40;background-color:rgba(0,0,0,0.4)}
+.login_box .login{background-color:white;border-radius:5px;position:fixed;left:37%;top:250px;width:565px;}
+.login_box .login dl:first-child{margin-top:22px;padding-left:25px;padding-bottom:16px;border-bottom:solid 1px #cccccc;margin-bottom:47px;overflow:hidden;}
+.login_box .login dl:first-child dt:first-child{font-size:18px;color:#333333;font-weight:bold;float:left;}
+.login_box .login dl:first-child dt:last-child{background-image:url(../images/close.png);width:12px;height:15px;float:right;height:25px;background-position:0 center;background-repeat:no-repeat;margin-right:20px;}
+.login_box .login dl:first-child dt:last-child:hover{background-image:url(../images/close_black.png);}
+.login_box .login .qq_login dd:first-child{background-color:#e6a993;overflow:hidden;padding-top:12px;padding-bottom:10px;}
+.login_box .login .qq_login dd:first-child p{float:left;}
+.login_box .login .qq_login dd:first-child p:first-child{margin-left:40px;background-image:url(../images/qqicon.png);width:25px;height:27px;}
+.login_box .login .qq_login dd:first-child p:last-child{margin-left:15px;font-size:14px;color:white;margin-right:51px;line-height:27px;}
+.login_box .login .qq_login dd{float:left;}
+.login_box .login .qq_login{margin-left:64px;margin-bottom:32px;overflow:hidden;}
+.login_box .login .qq_login dd:last-child{background-color:#3dbef9;padding-top:12px;padding-bottom:10px;margin-left:20px;}
+.login_box .login .qq_login dd:last-child p:first-child{background-image:url(../images/xinlangicon.png);width:29px;height:27px;background-repeat:no-repeat;background-position:0 center;margin-left:40px;margin-right:13px;}
+.login_box .login .qq_login dd:last-child p{float:left;}
+.login_box .login .qq_login dd:last-child p:last-child{color:white;font-size:14px;line-height:27px;margin-right:42px;}
+.login_box .login .form_login .username{width:415px;height:42px;margin-left:65px;border:solid 1px #999;border-radius:3px;margin-bottom:38px;padding-left:20px;color:#999;font-size:14px;}
+.login_box .login .form_login .password{margin-bottom:27px;box-shadow:0 0 5px rgba(153,153,153,0.35);}
+.login_box .login .form_login .checkbox{margin-left:65px;height:14px;}
+.login_box .login .form_login li .jizhuwo{color:#666;font-size:14px;margin-left:13px;}
+.login_box .login .form_login li .wangjmm{float:right;margin-right:70px;color:#3dbef9;font-size:14px;}
+.login_box .login .form_login li p{float:left;margin-top:3px;}
+.login_box .login .form_login{margin-bottom:27px;}
+.login_box .login dl:last-child{margin-bottom:31px;overflow:hidden;}
+.login_box .login dl:last-child button:first-child{width:92px;height:36px;background-color:#ea9b7e;border:none;border-radius:5px;font-size:18px;color:white;margin-left:64px;float:left;}
+.login_box .login dl:last-child button:last-child{float:right;width:92px;height:36px;background-color:#ea9b7e;border:none;border-radius:5px;font-size:18px;color:white;margin-right:64px;}

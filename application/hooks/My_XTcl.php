@@ -47,10 +47,8 @@ class My_XTcl{
 		{
 			$CI->loginUser['auth'] = array();
 			
-			$fields = 'id,usertype,userlevel,username,nickname,realname,mobile,email,userlogo,validemail,validmobile,status,sex,lastlogintime';
-			$CI->loginUser = XTM('User')->fetch_row(array('id'=>$xt_loginID), $fields);
-
-
+			$fields = 'id,userlevel,username,nickname,realname,mobile,email,userlogo,validemail,validmobile,status,sex,lastlogintime';
+			$CI->loginUser = XTM('User')->get_info_by_id(array('id'=>$xt_loginID), $fields);
 
 			if($CI->loginUser && $CI->loginUser['status'])
 			{
@@ -58,22 +56,12 @@ class My_XTcl{
 				$CI->loginID         = $CI->loginUser['id'];
 				$CI->loginUserName      = $CI->loginUser['username'];
 				$CI->loginNickName      = empty($CI->loginUser['nickname']) ? $CI->loginUser['username'] : $CI->loginUser['nickname'];
-				$CI->loginUsertype = (int)$CI->loginUser['usertype'];
-				if($CI->loginUsertype==2)	//机构
-					$CI->loginInsID = $CI->loginID;
-
-				$CI->loginUserNum = array();
-				if($CI->loginUsertype==1)
-					$CI->loginUserNum = XTM('Usernum')->fetch_row(array('userid'=>$xt_loginID), 'be_ordernum_new');
-
-				$fields = 'safety';
-				$oUser_detail = XTM('Userdetail')->fetch_row(array('userid'=>$xt_loginID), $fields);
-				if($oUser_detail)
-				{
-					$CI->loginUser = array_merge($oUser_detail, $CI->loginUser);
-				}
+				//$CI->loginUsertype = (int)$CI->loginUser['usertype'];
 				
 
+				$CI->loginUserNum = array();
+				//$CI->loginUserNum = XTM('Usernum')->fetch_row(array('userid'=>$xt_loginID), 'be_ordernum_new');
+				
 				$loginUserID = _get_key_val($CI->loginUser['id']);
 				$CI->loginUser['id_key'] = $loginUserID;
 				if ($is_manage)
@@ -82,7 +70,7 @@ class My_XTcl{
 					$CI->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
 					if ( ! $sysMsgList = $CI->cache->get('sysMsgList'))
 					{
-					    //系统消息--所有人
+					    /*//系统消息--所有人
 						$where = array(
 							'touserid'=>0,
 							'status'=>1,
@@ -90,11 +78,11 @@ class My_XTcl{
 						);                    
 						$sysMsgList = XTM('Message')->get_list($where);
 
-					    $CI->cache->save('sysMsgList', $sysMsgList, 10*60);
+					    $CI->cache->save('sysMsgList', $sysMsgList, 10*60);*/
 					}
 
 					//当前登录或当前代理用户
-					$CI->thatUser = _get_login_agent_user();
+					//$CI->thatUser = _get_login_agent_user();
 					
 				}
 				
@@ -197,8 +185,6 @@ class My_XTcl{
 		}
 		
 		$CI->base_url    =    $base_url;
-		//$CI->site_id = 0;
-
 		
 	}
 	

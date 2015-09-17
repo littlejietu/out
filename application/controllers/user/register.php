@@ -48,8 +48,12 @@ class Register extends CI_Controller {
             $version = $this->input->post('version');
             switch($version)
             {
+                "phone":
+                    list($config, $data_main, $data_info) = $this->phone_config();
+                    break;
+
                 default://默认注册页
-                    list($config, $data_main, $data_detail) = $this->phone_config();
+                    list($config, $data_main, $data_info) = $this->reg_config();
                     break;
             }
 
@@ -59,31 +63,15 @@ class Register extends CI_Controller {
                 $data_init = array(
                         'addtime'=>time(),
                         'status'=>1,
-                        'validmobile'=>1,
+                        //'validmobile'=>1,
                         'lastip'=>_ip_long(),
                     );
                 $userid = $this->User_model->insert_string( array_merge($data_main,$data_init) );
 
-                $data_detail = array_merge(array('userid'=>$userid), $data_detail);
-                $data_memo = array(
-                        'userid'=>$userid,
-                    );
+                $data_info = array_merge(array('userid'=>$userid), $data_info);
 
-                $this->User_model->set_table('user_detail');
-                $this->User_model->insert($data_detail);
-                $this->User_model->set_table('user_memo');
-                $this->User_model->insert($data_memo);
-                //begin-初始化相册
-                $this->load->model('Album_model');
-                $data_album = array('userid'=>$userid,
-                    'title'=>'精选作品',
-                    'memo'=>'系统默认',
-                    'kind'=>1,
-                    'status'=>1,
-                    'addtime'=>time(),
-                    );
-                $this->Album_model->insert($data_album);
-                //end-初始化相册
+                $this->User_model->set_table('user_info');
+                $this->User_model->insert($data_info);
 
                 $res['code'] = 200;
             }
@@ -95,6 +83,42 @@ class Register extends CI_Controller {
         }//-if ($this->input->is_post())
 
         $this->view->json($res);
+    }
+
+    private function reg_config()
+    {
+        $config = array(
+            array(
+                'field'=>'password',
+                'label'=>'密码',
+                'rules'=>'trim|required|min_length[6]|max_length[20]',
+            ),
+            array(
+                'field'=>'mobile',
+                'label'=>'手机号码',
+                'rules'=>'trim|required|valid_mobile|exist_user_mobile',
+            ),
+            array(
+                'field'=>'code',
+                'label'=>'验证码',
+                'rules'=>'trim|required|callback_mobilecode_check',
+            ),
+        );
+        $plaintext = $this->input->post('password');
+        $this->load->library('des');
+        $passwd_plaintext = ':'.$this->des->encrypt($plaintext);
+        $data_main = array(
+            'password'=>md5($plaintext),
+            //'password_plaintext'=>$passwd_plaintext,
+            'username'=>$this->input->post('mobile'),
+            'userlevel'=>0,
+        );
+
+        $data_info = array(
+            
+        );
+
+        return array($config, $data_main, $data_info);
     }
 
     private function phone_config()
