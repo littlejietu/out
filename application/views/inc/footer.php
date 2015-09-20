@@ -8,7 +8,7 @@
             <p>投稿邮箱：<a href="#">juwairennet@163.com</a></p>
         </div>
     	<div class="footer-center fl">
-        	<img src="images/2code.jpg" />
+        	<img src="<?php echo _get_cfg_path('images')?>2code.jpg" />
             <p>扫码关注微信公众平台</p>
         </div>
     	<div class="footer-right fl">
@@ -19,7 +19,3 @@
         </div>
     </div>
 </div>
-<?php echo _get_html_cssjs('js','show.js','js');?>
-
-</body>
-</html>

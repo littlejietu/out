@@ -37,18 +37,16 @@ class My_XTcl{
 		$user_url = $CI->config->item('user_url');
 		$CI->timestamp = time();
 		$CI->todaytime = strtotime('today');
-		//$CI->site_id = 0;
 		$CI->loginUser = array();
 		$loginUserID = '';
 		$CI->loginID = 0;
-		$CI->loginInsID = 0;
 
 		if ($xt_loginID)
 		{
 			$CI->loginUser['auth'] = array();
 			
-			$fields = 'id,userlevel,username,nickname,realname,mobile,email,userlogo,validemail,validmobile,status,sex,lastlogintime';
-			$CI->loginUser = XTM('User')->get_info_by_id(array('id'=>$xt_loginID), $fields);
+			//$fields = 'id,userlevel,username,nickname,realname,mobile,email,userlogo,validemail,validmobile,status,sex,lastlogintime';
+			$CI->loginUser = XTM('User')->get_by_id($xt_loginID);
 
 			if($CI->loginUser && $CI->loginUser['status'])
 			{
@@ -59,7 +57,7 @@ class My_XTcl{
 				//$CI->loginUsertype = (int)$CI->loginUser['usertype'];
 				
 
-				$CI->loginUserNum = array();
+				//$CI->loginUserNum = array();
 				//$CI->loginUserNum = XTM('Usernum')->fetch_row(array('userid'=>$xt_loginID), 'be_ordernum_new');
 				
 				$loginUserID = _get_key_val($CI->loginUser['id']);

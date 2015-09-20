@@ -27,8 +27,7 @@ class User_model extends XT_Model {
 		->where('username', $username)
 		->get()
 		->row_array();
-		echo $this->db->last_query();
-		die;
+
 		return $db_temp;
 	}
 
@@ -70,7 +69,7 @@ class User_model extends XT_Model {
 		$this->db->set('lastip', $last_ip, FALSE);
 		//$this->db->set('login_num', 'login_num+1', FALSE);
 		//$this->db->set('security_code', $this->security_code);
-		$this->db->where('id', $id);
+		$this->db->where('userid', $id);
 		return $this->db->update($this->tb_userinfo);
 	}
 

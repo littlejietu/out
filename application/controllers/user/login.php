@@ -30,6 +30,7 @@ class Login extends CI_Controller {
         if ($this->input->is_post())
         {
             $res = $this->login();
+            $res['forword_url'] = $forword_url;
             $this->view->json($res);
         }
         
@@ -46,7 +47,7 @@ class Login extends CI_Controller {
         $iplong = _ip_long();
         $this->load->model('login_log_model');
         $res['error_num'] = $this->login_log_model->count(array('ip'=>$iplong));
-        $login_code = $this->input->post('login_code');
+        /*$login_code = $this->input->post('login_code');
 
         if (!$login_code)
         {
@@ -62,6 +63,7 @@ class Login extends CI_Controller {
             $res['data']['error_messages']['result'] = '验证码输入不正确';
             return $res;
         }
+        */
 
         if ($res['error_num'] >=10)
         {
@@ -107,20 +109,20 @@ class Login extends CI_Controller {
     public function user_login_check()
     {
         $username = trim($_POST['username']);
-        $fields   = 'id,username,usertype,nickname,mobile,password,status,validmobile,validemail';
+        $fields   = 'id,username,nickname,mobile,password,status,validmobile,validemail';
         $this->load->helper('email');
-        if (valid_email($username))
+        if (_valid_email($username))
         {
-            $user_info = $this->user_model->fetch_row(array('email'=>$username), $fields);
+            $user_info = $this->User_model->get_info_by_id(array('email'=>$username), $fields);
             if ($user_info && $user_info['validemail']==0)
             {
                 $this->form_validation->set_message('user_login_check', '该邮箱尚未完成验证，无法登录.');
                 return false;
             }
         }
-        elseif (is_mobile($username))
+        elseif (_is_mobile($username))
         {
-            $user_info = $this->User_model->fetch_row(array('mobile'=>$username), $fields);
+            $user_info = $this->User_model->get_info_by_id(array('mobile'=>$username), $fields);
             if ($user_info && $user_info['validmobile']==0)
             {
                 $this->form_validation->set_message('user_login_check', '该手机号码尚未验证，无法登录.');
@@ -134,7 +136,7 @@ class Login extends CI_Controller {
         }
         else
         {
-            $user_info = $this->user_model->get_user_by_username($username, $fields);
+            $user_info = $this->User_model->get_user_by_username($username);
         }
 
         if ($user_info && $user_info['status'] && $user_info['password'] == md5($_POST['password']))
@@ -165,7 +167,7 @@ class Login extends CI_Controller {
 
             $param = array('ver'=>'v3');
             $this->res['data']['login_userid'] = _get_key_val($user_info['id']);
-            $this->res['data']['usertype'] = $user_info['usertype'];
+            //$this->res['data']['usertype'] = $user_info['usertype'];
             //$this->res['data']['userinfo'] = insert_user_info();
 
             return true;

@@ -87,6 +87,24 @@ function _check_password_safe($pwd){
 	return $res;
 }
 
+function _is_mobile($str,$is_more=FALSE)
+{
+	if($is_more)
+	{
+		$_str=explode(",",$str);
+		$count  =       count($_str);
+		for($i=0;$i<$count;$i++)
+		{
+			if(!is_mobile($_str[$i]))return false;
+		}
+		return true;
+	}
+	else
+	{
+		return (preg_match('/1[3|5|7|8|][0-9]{9}/',$str) ? true : false );
+	}
+}
+
 function _get_timehello()
 {
 	$res = '';
@@ -127,6 +145,12 @@ function add_member_option($option,$item_id,$content='')
 	);
 
 	return XTM('Admin_option')->insert($options);
+}
+
+
+function _valid_email($email)
+{
+	return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 ?>
