@@ -22,7 +22,7 @@
         	<?php if(!empty($this->loginID)):?>
                 <a href="/m/">个人中心</a>
             <?php else:?>
-                <a href="#">注册</a>/<a href="#">登录</a>
+                <a href="/reg">注册</a>/<a href="/user/login">登录</a>
             <?php endif?>
         </div>
     </div>
