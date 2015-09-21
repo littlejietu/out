@@ -48,7 +48,7 @@ class Register extends CI_Controller {
             $version = $this->input->post('version');
             switch($version)
             {
-                "phone":
+                case "phone":
                     list($config, $data_main, $data_info) = $this->phone_config();
                     break;
 

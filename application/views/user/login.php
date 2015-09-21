@@ -37,7 +37,7 @@
         
         <dl>
         	<button type="submit">登陆</button>
-            <button>免费注册</button>
+            <button type="button" onclick="window.location.href='/reg';">免费注册</button>
         </dl>
         </form>
     </div>  

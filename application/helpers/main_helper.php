@@ -59,16 +59,6 @@ function _get_companylogo_url($logo){
 
 }
 
-function _get_login_agent_user(){
-	$CI =& get_instance();
-
-	$agentUser = $CI->cache->get('agentUser');
-	if(!empty($agentUser))
-		return $agentUser;
-	else
-		return $CI->loginUser;
-}
-
 function _get_image_url($img){
 
     return $img? '/'.trim($img,'/') : '';
