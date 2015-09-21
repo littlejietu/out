@@ -17,12 +17,12 @@
     <div class="main_R">
     	<div class="weirenzheng_box">
         	<ul>
-            	<li><img src="images/tup_07.png" /></li>
+            	<li><img src="<?php echo _get_cfg_path('images')?>tup_07.png" /></li>
                 <li class="text01">
                 	<span>这里是偶的用户名</span>
                     <span>关注<h6>45</h6></span>
                 </li>
-                <li><img src="images/weirenz_person.png" />未认证</li>
+                <li><img src="<?php echo _get_cfg_path('images')?>weirenz_person.png" />未认证</li>
             </ul>
             <ul>
             	<li class="dengji"><h1>等级9</h1><h2>股农</h2><h3><span></span></h3><h4>股神</h4></li>
@@ -37,9 +37,9 @@
 			<li>修改用户名</li>
         </ul>
         <div class="yonghuming">
-        	<ul><img src="images/tup_08.png" /></ul>
+        	<ul><img src="<?php echo _get_cfg_path('images')?>tup_08.png" /></ul>
             <ul>
-            	<li class="yhm">这里是偶的用户名<img src="images/bi.png" /></li>
+            	<li class="yhm">这里是偶的用户名<img src="<?php echo _get_cfg_path('images')?>bi.png" /></li>
                 <li class="phone">1585858558<span>已验证</span></li>
                 <li class="e-mail">1234**78@qq.com<span>尚未进行验证</span></li>
                 <li class="qq"><input type="text" placeholder="1234****78" /></li>
