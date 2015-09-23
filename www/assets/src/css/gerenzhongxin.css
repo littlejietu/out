@@ -22,7 +22,7 @@ ul{margin:0;padding:0;list-style:none;}
 .main .main_L ul .fangjiangl:hover{background-image:url(../images/fangjian.png);background-color:#ea9b7e;color:white;}
 .main .main_L ul .zhibojian{background-image:url(../images/zhibojian.png);background-repeat:no-repeat;background-position:11px center;padding-left:51px;background-color:#ea9b7e;color:white;}
 .main .main_L ul .zhibojian1{background-image:url(../images/zhibojian_gray.png);background-repeat:no-repeat;background-position:11px center;padding-left:51px;background-color:inherit;color:#a1a1a1;}
-.main .main_R{float:right;position:relative;}
+.main .main_R{float:left;position:relative; margin-left:20px;}
 .main .main_R .weirenzheng_box{width:977px;background-color:white;padding-top:15px;padding-left:18px;padding-bottom:15px;overflow:hidden;}
 .main .main_R .weirenzheng_box ul:first-child{float:left;}
 .main .main_R .weirenzheng_box ul:first-child li{float:left;}
@@ -228,3 +228,4 @@ ul{margin:0;padding:0;list-style:none;}
 .main .main_R .wodegz_box ul li dt h4 p{color:#ea9b7e;}
 .main .main_R .wodegz_box ul li dt h4 span{color:#49bcf1;margin-left:72px;display:none;}
 .footer .footer-left a{margin-right:0;}
+.footer{position:fixed;bottom:0;width:100%}

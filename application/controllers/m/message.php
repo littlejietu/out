@@ -6,22 +6,21 @@ class Message extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('Message_model');
+        $this->load->model('Messagelog_model');
     }
 	
 
 	public function index()
 	{
-		$userid = $this->thatUser['id'];
-		//所有人的消息
-		$toall_list = $this->Message_model->get_list(array('touserid'=>0,'status'=>1));
+		$userid = $this->loginUser['id'];
+		
 
 		$page     = _get_page();
 		$pagesize = 3;
 		$arrParam = array();
-		$arrWhere = array('touserid'=>$userid,'status'=>1);		//条件
+		$arrWhere = array('receiveuserid'=>$userid,'status'=>1);		//条件
 
-		$list = $this->Message_model->fetch_page($page, $pagesize, $arrWhere);
+		$list = $this->Messagelog_model->fetch_page($page, $pagesize, $arrWhere);
 		//echo $this->db->last_query();die;
 		
 
@@ -37,7 +36,7 @@ class Message extends CI_Controller {
 
 		$result = array(
 			'list' => $list,
-			'toall_list' =>$toall_list,
+			/*'toall_list' =>$toall_list,*/
 			);
 
 		//print_r($list);
@@ -50,7 +49,7 @@ class Message extends CI_Controller {
 		$o = $this->Message_model->get_info_by_id($id);
 
 		//修改为已读
-		if($o['touserid']>0)
+		if($o['receiveuserid']>0)
 			$this->Message_model->update_by_where(array('id'=>$id),array('readed'=>1));
 
 		$result = array(

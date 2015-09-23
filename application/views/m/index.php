@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>个人中心 - <?=_get_config('site_name');?></title>
+<title> - <?=_get_config('site_name');?></title>
 
 <?php echo _get_html_cssjs('css','reset.css,style.css,index.css,gerenzhongxin.css','css');?>
 </head>

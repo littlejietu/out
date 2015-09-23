@@ -37,7 +37,7 @@
                     </dt>
                 </li>
                 <li>
-
+                
                     <dl>
                         <img src="<?php echo _get_cfg_path('images')?>toux.png">
                         <div class="play"></div>
@@ -50,7 +50,7 @@
                     </dt>
                 </li>
                 <li>
-
+                
                     <dl>
                         <img src="<?php echo _get_cfg_path('images')?>toux.png">
                         <div class="play"></div>
@@ -63,7 +63,7 @@
                     </dt>
                 </li>
                 <li>
-
+                
                     <dl>
                         <img src="<?php echo _get_cfg_path('images')?>toux.png">
                         <div class="play"></div>
