@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<?php $this->load->view('inc/header');?>
+<?php $this->load->view('inc/m_header');?>
 
 
 <?php $this->load->view('inc/m_top');?>
