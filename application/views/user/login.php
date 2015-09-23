@@ -9,7 +9,7 @@
 
 <body>
 
-<?php $this->load->view('inc/header');?>
+<?php $this->load->view('inc/m_header');?>
 
 <div class="login_box" style="position:;">
 	<div class="login">
@@ -43,7 +43,7 @@
     </div>  
 </div>
 <br /><br /><br /><br /><br /><br />
-<?php $this->load->view('inc/footer');?>
+<?php $this->load->view('inc/m_footer');?>
 
 <?php echo _get_html_cssjs('js','jquery-1.11.3.min.js,jquery.form.js,page/common/header.js,page/common/show.js,page/user/login.js','js');?>
 
