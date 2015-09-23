@@ -93,7 +93,7 @@
 </div>
 
 
-<?php $this->load->view('inc/m_footer');?>
+<?php $this->load->view('inc/footer');?>
 
 <?php echo _get_html_cssjs('js','jquery-1.11.3.min.js,jquery.form.js,page/common/header.js,page/common/show.js,page/user/login.js','js');?>
 
