@@ -1,6 +1,35 @@
 <?php $this->load->view('admin/inc/page_block_header');?>
+<title>图说公司 - <?=_get_config('site_name');?>后台管理平台</title>
 
+						<div class="page-header">
+							<h1>
+								图说公司
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									管理列表
+								</small>
+							</h1>
+						</div>
 
+						<div class="row">
+							<div class="col-xs-12">
+								<form class="form-inline" role="form">
+									<div class="form-group">
+										<label class="control-label" for="receiveType">消息接收类型:</label>
+										<select id="receiveType" class="form-control">
+											<option value="">请选择</option>
+											<option value="1">全部会员</option>
+											<option value="2">行业专家</option>
+											<option value="3">普通会员</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label class="control-label" for="messageTitle">消息名称:</label>
+										<input type="text" id="messageTitle" placeholder="请输入关键字" class="form-control">
+									</div>
+									<button type="button" class="btn btn-primary" id="search-btn"><i class="icon-search"></i>搜索</button>
+									<button type="button" class="btn btn-primary" id="add-btn" style="float:right;" onclick="viewUrl(&quot;http://192.168.10.251:8080/ywadmin/pagemv/module/activityInfoAdd?Message_Id&quot;)"><i class="icon-plus"></i>新增</button>
+								</form>
 								<table id="simple-table" class="table table-striped table-bordered table-hover">
 									<thead>
 										<tr>
@@ -45,7 +74,7 @@
 											</td>
 
 											<td>
-												<div class="hidden-sm hidden-xs btn-group">
+												<!-- <div class="hidden-sm hidden-xs btn-group">
 													<button class="btn btn-xs btn-success">
 														<i class="ace-icon fa fa-check bigger-120"></i>
 													</button>
@@ -95,7 +124,9 @@
 															</li>
 														</ul>
 													</div>
-												</div>
+												</div> -->
+
+												<a href="">查看</a> <a href="">编辑</a>
 											</td>
 										</tr>
 
@@ -396,46 +427,9 @@
 										</tr>
 									</tbody>
 								</table>
-
-
+							</div>
+						</div>
 <?php $this->load->view('admin/inc/page_block_footer');?>
 
-<?php echo _get_html_cssjs('admin_js','dataTables/jquery.dataTables.js,dataTables/jquery.dataTables.bootstrap.js,dataTables/extensions/TableTools/js/dataTables.tableTools.js,dataTables/extensions/ColVis/js/dataTables.colVis.js','js');?>
+<?php echo _get_html_cssjs('admin_js','dataTables/jquery.dataTables.js,dataTables/jquery.dataTables.bootstrap.js,dataTables/extensions/TableTools/js/dataTables.tableTools.js,dataTables/extensions/ColVis/js/dataTables.colVis.js,common/table_list.js','js');?>
 
-<script type="text/javascript">
-var active_class = 'active';
-$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
-	var th_checked = this.checked;//checkbox inside "TH" table header
-	
-	$(this).closest('table').find('tbody > tr').each(function(){
-		var row = this;
-		if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
-		else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
-	});
-});
-
-//select/deselect a row when the checkbox is checked/unchecked
-$('#simple-table').on('click', 'td input[type=checkbox]' , function(){
-	var $row = $(this).closest('tr');
-	if(this.checked) $row.addClass(active_class);
-	else $row.removeClass(active_class);
-});
-
-
-//add tooltip for small view action buttons in dropdown menu
-$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
-
-//tooltip placement on right or left
-function tooltip_placement(context, source) {
-	var $source = $(source);
-	var $parent = $source.closest('table')
-	var off1 = $parent.offset();
-	var w1 = $parent.width();
-
-	var off2 = $source.offset();
-	//var w2 = $source.width();
-
-	if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
-	return 'left';
-}
-</script>

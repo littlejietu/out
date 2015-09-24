@@ -67,6 +67,26 @@ $config['nav_list'] = array(
 		'open'=>'',
 	),
 	5=>array(
+		'icon'=>'fa-list-alt',
+		'title'=>'常用功能',
+		'page'=>'/admin/common',
+		'open'=>'',
+		'submenu'=>array(
+				16=>array(
+					'icon'=>'fa-caret-right',
+					'title'=>'广告管理',
+					'page'=>'/admin/ad',
+					'parentid'=>5,
+					),
+				17=>array(
+					'icon'=>'fa-caret-right',
+					'title'=>'推首管理',
+					'page'=>'/admin/top',
+					'parentid'=>5,
+					),
+			),
+	),
+	6=>array(
 		'icon'=>'fa-tag',
 		'title'=>'系统管理',
 		'page'=>'/admin/sys',
@@ -76,13 +96,13 @@ $config['nav_list'] = array(
 					'icon'=>'fa-caret-right',
 					'title'=>'管理员管理',
 					'page'=>'/admin/admin',
-					'parentid'=>5,
+					'parentid'=>6,
 					),
 				15=>array(
 					'icon'=>'fa-caret-right',
 					'title'=>'角色管理',
 					'page'=>'/admin/role',
-					'parentid'=>5,
+					'parentid'=>6,
 					),
 			),
 	),

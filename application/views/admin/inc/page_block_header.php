@@ -15,5 +15,4 @@
 						<!-- #section:settings.box -->
 						<!--<?php //$this->load->view('admin/inc/main_settings');?>-->
 
-						<div class="row">
-							<div class="col-xs-12">
+						
