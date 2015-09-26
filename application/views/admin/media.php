@@ -28,7 +28,7 @@
 										<input type="text" id="messageTitle" placeholder="请输入关键字" class="form-control">
 									</div>
 									<button type="button" class="btn btn-primary" id="search-btn"><i class="icon-search"></i>搜索</button>
-									<button type="button" class="btn btn-primary" id="add-btn" style="float:right;" onclick="viewUrl(&quot;http://192.168.10.251:8080/ywadmin/pagemv/module/activityInfoAdd?Message_Id&quot;)"><i class="icon-plus"></i>新增</button>
+									<button type="button" class="btn btn-primary" id="add-btn" style="float:right;" onclick=""><i class="icon-plus"></i>新增</button>
 								</form>
 								<table id="simple-table" class="table table-striped table-bordered table-hover">
 									<thead>

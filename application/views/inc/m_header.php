@@ -20,8 +20,8 @@
         </form>
         <div class="reg fr">
         	<?php if(!empty($this->loginID)):?>
-                <a href="/m/">个人中心</a><a href="/user/login/out">-</a>
-            <?php else:?>
+               
+           
                 <a href="/reg">注册</a>/<a href="/user/login">登录</a>
             <?php endif?>
         </div>

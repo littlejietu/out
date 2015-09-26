@@ -5,6 +5,7 @@ ul{margin:0;padding:0;list-style:none;}
 .zhengzaizb .zzzb_left{float:left;border-bottom:solid 2px #ea9b7e;font-size:30px;position:absolute;}
 .zhengzaizb .zzzb_right{float:right;font-size:14px;line-height:40px;margin-right:55px;background-image:url(../images/fenxiang01.png);background-repeat:no-repeat;background-position:0 center;padding-left:26px;}
 .main{width:1160px;margin-left:auto;margin-right:auto;overflow:hidden;margin-bottom:20px;}
+.mainl{margin-bottom:30px;}
 .main .main_L{float:left;}
 .main .main_L ul li{width:92px;height:50px;font-size:16px;line-height:50px;color:#a0a0a0;}
 .main .main_L ul .sixin,.main .main_L ul .wodegz{border-bottom:solid 1px #d9d9d9;}

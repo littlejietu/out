@@ -31,50 +31,51 @@
                     </dl>
                     <dt>
                         <h1><?=$a['room']?></h1>
-                        <h2>房主名字</h2>
+                        <h2><?=$a['userid']?></h2>
                         <h3><p>已开播22分钟</p><span>4455</span></h3>
                         <h4><p>正在直播</p><span>取消关注</span></h4>
                     </dt>
                 </li>
                 <li>
-                
+
                     <dl>
                         <img src="<?php echo _get_cfg_path('images')?>toux.png">
                         <div class="play"></div>
                     </dl>
                     <dt>
                         <h1><?=$a['room']?></h1>
-                        <h2>房主名字</h2>
+                        <h2><?=$a['userid']?></h2>
                         <h3><p>已开播22分钟</p><span>4455</span></h3>
                         <h4><p>正在直播</p><span>取消关注</span></h4>
                     </dt>
                 </li>
                 <li>
-                
+
                     <dl>
                         <img src="<?php echo _get_cfg_path('images')?>toux.png">
                         <div class="play"></div>
                     </dl>
                     <dt>
                         <h1><?=$a['room']?></h1>
-                        <h2>房主名字</h2>
+                        <h2><?=$a['userid']?></h2>
                         <h3><p>已开播22分钟</p><span>4455</span></h3>
                         <h4><p>正在直播</p><span>取消关注</span></h4>
                     </dt>
                 </li>
                 <li>
-                
+
                     <dl>
                         <img src="<?php echo _get_cfg_path('images')?>toux.png">
                         <div class="play"></div>
                     </dl>
                     <dt>
                         <h1><?=$a['room']?></h1>
-                        <h2>房主名字</h2>
+                        <h2><?=$a['userid']?></h2>
                         <h3><p>已开播22分钟</p><span>4455</span></h3>
                         <h4><p>正在直播</p><span>取消关注</span></h4>
                     </dt>
                 </li>
+                
                 <?php endforeach;?>
                 
 

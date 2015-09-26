@@ -81,16 +81,18 @@
 						<!-- #section:basics/navbar.user_menu -->
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<?php $xt_loginUser = $this->session->userdata['loginUser'];
-								if(!empty($xt_loginUser)):
-									$name = !empty($xt_loginUser['realname'])?$xt_loginUser['realname']:$xt_loginUser['username'];?>
+								<?php 
+								$xt_loginUser = $this->input->cookie('admin_loginUser');
+								//print_r($xt_loginUser);
+								//if(!empty($xt_loginUser)):
+									//$name = !empty($xt_loginUser['realname'])?$xt_loginUser['realname']:$xt_loginUser['username'];?>
 									<span class="user-info">
 										<small>欢迎,</small>
-										<?=$name?>
+										
 									</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
-								<?php endif;?>
+								<?php //endif;?>
 							</a>
 
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
